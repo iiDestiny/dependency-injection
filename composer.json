@@ -1,0 +1,19 @@
+{
+    "name": "iidestiny/dependency-injection",
+    "description": "Enable your methods to use dependency injection",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "iidestiny",
+            "email": "iidestiny@vip.qq.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iidestiny\\DependencyInjection\\": "src"
+        }
+    }
+}
