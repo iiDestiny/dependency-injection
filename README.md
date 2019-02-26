@@ -92,7 +92,7 @@ Then we easily use the method of dependency injection
 or
 
 ```php
-/**
+    /**
      * store
      */
     public function store()
