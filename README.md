@@ -1,5 +1,8 @@
 <h1 align="center"> dependency-injection </h1>
-
+<p align=center>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://travis-ci.org/iiDestiny/dependency-injection.svg?branch=master"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://travis-ci.org/iiDestiny/dependency-injection.svg?branch=master"></a>
+</p>
 <p align="center"> Let your custom class methods also enjoy dependency injection.</p>
 
 ## Doc
