@@ -1,27 +1,102 @@
 <h1 align="center"> dependency-injection </h1>
 
-<p align="center"> Enable your methods to use dependency injection.</p>
+<p align="center"> Let your custom class methods also enjoy dependency injection.</p>
 
+## Doc
 
-## Installing
+- [中文文档]()
 
-```shell
-$ composer require iidestiny/dependency-injection -vvv
-```
+## Requirement
+
+- PHP >= 7.0
 
 ## Usage
 
-TODO
+Use helper methods
 
-## Contributing
+```php
+    // register class
+    di_register(Tools::class)
+    
+    // Call a method in a class
+    di_register(Tools::class)->generate($param, $param, $param)
+    
+    // more
+    di_register(Tools::class)->foo($bar)
+```
 
-You can contribute in one of three ways:
+## example
+Sometimes we need dependency injection when calling our own defined methods. See the example below.
 
-1. File bug reports using the [issue tracker](https://github.com/iidestiny/dependency-injection/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/iidestiny/dependency-injection/issues).
-3. Contribute new features or update the wiki.
+```php
+<?php
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+namespace App\Services;
+
+
+use App\Tools;
+use App\User;
+use Cache;
+use Petstore30\Order;
+
+class OrderService
+{
+    /**
+     * place order
+     *
+     * @param User  $user
+     * @param       $goods
+     * @param       $address
+     * @param Cache $cache
+     * @param Tools $tools
+     */
+    public function placeOrder(User $user, $goods, $address, Cache $cache, Tools $tools)
+    {
+        // code something
+    }
+
+    /**
+     * pay
+     *
+     * @param Order $order
+     * @param Cache $cache
+     * @param Tools $tools
+     */
+    public function pay(Order $order, Cache $cache, Tools $tools)
+    {
+        // code something
+    }
+
+}
+
+```
+
+Then we easily use the method of dependency injection
+
+```php
+    /**
+     * store
+     */
+    public function store()
+    {
+        di_register(OrderService::class)->placeOrder($user, $goods, $address);
+    }
+```
+
+or
+
+```php
+/**
+     * store
+     */
+    public function store()
+    {
+        $orderService = di_register(OrderService::class);
+        
+        $orderService->placeOrder($user, $goods, $address);
+        $orderService->pay($order);
+    }
+```
 
 ## License
 
