@@ -1,32 +1,41 @@
-<h1 align="center"> dependency-injection </h1>
+<h1 align="center"> 依赖注入 </h1>
 
-<p align="center"> Let your custom class methods also enjoy dependency injection.</p>
+<p align="center"> 让你自定义的方法也可以使用依赖注入.</p>
 
-## Doc
+## 文档
 
-- [中文文档](https://github.com/iiDestiny/dependency-injection/blob/master/Zh-README.md)
+- [English document](https://github.com/iiDestiny/dependency-injection/blob/master/README.md)
 
-## Requirement
+## 要求
 
 - PHP >= 7.0
 
-## Usage
+## 使用
 
-Use helper methods
+使用辅助方法「推荐」
 
 ```php
-    // register class
+    // 注册你的自定义类
     di_register(Tools::class)
     
-    // Call a method in a class
+    // 调用你类中的方法
     di_register(Tools::class)->generate($param, $param, $param)
     
-    // more
+    // 类所有方法都可以调用
     di_register(Tools::class)->foo($bar)
 ```
 
-## example
-Sometimes we need dependency injection when calling our own defined methods. See the example below.
+原本方法
+
+```php
+use Iidestiny\DependencyInjection\App;
+
+App::register(Tools::class)
+```
+
+## 实例
+
+例如有时候我们自定义的 Service 服务层可能也需要依赖注入其他工具类，但是我们控制器中已经依赖注入了 Service，调用 Service 中方法的时候就不能轻易的注入其他工具类，使用这个扩展包可以轻易解决这个问题，看下面例子。
 
 ```php
 <?php
@@ -42,7 +51,7 @@ use Petstore30\Order;
 class OrderService
 {
     /**
-     * place order
+     * 下单
      *
      * @param User  $user
      * @param       $goods
@@ -52,7 +61,7 @@ class OrderService
      */
     public function placeOrder(User $user, $goods, $address, Cache $cache, Tools $tools)
     {
-        // code something
+        // 下单逻辑，其中需要依赖注入 Cache 与 Tools
     }
 
     /**
@@ -64,14 +73,14 @@ class OrderService
      */
     public function pay(Order $order, Cache $cache, Tools $tools)
     {
-        // code something
+         // 支付逻辑，其中需要依赖注入 Cache 与 Tools
     }
 
 }
 
 ```
 
-Then we easily use the method of dependency injection
+我们可以轻易调用
 
 ```php
     /**
@@ -83,7 +92,7 @@ Then we easily use the method of dependency injection
     }
 ```
 
-or
+或者
 
 ```php
 /**
