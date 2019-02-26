@@ -10,6 +10,12 @@
 
 - PHP >= 7.0
 
+## install
+
+```bash
+composer require iidestiny/dependency-injection -vvv
+```
+
 ## Usage
 
 Use helper methods

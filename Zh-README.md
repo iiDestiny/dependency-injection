@@ -10,6 +10,12 @@
 
 - PHP >= 7.0
 
+## 安装
+
+```bash
+composer require iidestiny/dependency-injection -vvv
+```
+
 ## 使用
 
 使用辅助方法「推荐」
