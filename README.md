@@ -1,7 +1,11 @@
 <h1 align="center"> dependency-injection </h1>
 <p align=center>
 <a href="https://github.com/iiDestiny/dependency-injection"><img src="https://travis-ci.org/iiDestiny/dependency-injection.svg?branch=master"></a>
-<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://travis-ci.org/iiDestiny/dependency-injection.svg?branch=master"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://poser.pugx.org/iidestiny/dependency-injection/v/stable"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://poser.pugx.org/iidestiny/dependency-injection/downloads"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://poser.pugx.org/iidestiny/dependency-injection/v/unstable"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
+<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://poser.pugx.org/iidestiny/dependency-injection/license"></a>
 </p>
 <p align="center"> Let your custom class methods also enjoy dependency injection.</p>
 
