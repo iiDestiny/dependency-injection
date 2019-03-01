@@ -10,6 +10,6 @@ if (!function_exists('di_register')) {
      */
     function di_register($instance)
     {
-        return \Iidestiny\DependencyInjection\App::register($instance);
+        return (new \Iidestiny\DependencyInjection\App())->register($instance);
     }
 }

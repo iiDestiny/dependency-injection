@@ -18,7 +18,7 @@ class App
      *
      * @var
      */
-    protected static $instance;
+    protected $instance;
 
     /**
      * Instance registered
@@ -27,15 +27,15 @@ class App
      *
      * @return string
      */
-    public static function register($instance)
+    public function register($instance)
     {
         if (!is_object($instance)) {
-            self::$instance = new $instance();
+            $this->instance = new $instance();
         } else {
-            self::$instance = $instance;
+            $this->instance = $instance;
         }
 
-        return new self();
+        return $this;
     }
 
     /**
@@ -52,8 +52,8 @@ class App
      */
     public function __call($method, $parameters)
     {
-        if (!method_exists(self::$instance, $method)) {
-            $instance = get_class(self::$instance);
+        if (!method_exists($this->instance, $method)) {
+            $instance = get_class($this->instance);
 
             throw new InvalidArgumentException("Instance [{$instance}] does not exist for [{$method}] method");
         }
@@ -72,7 +72,7 @@ class App
      */
     public function make($method, ...$parameters)
     {
-        $reflector = new ReflectionMethod(self::$instance, $method);
+        $reflector = new ReflectionMethod($this->instance, $method);
 
         foreach ($reflector->getParameters() as $key => $parameter) {
 
@@ -91,6 +91,6 @@ class App
             }
         }
 
-        return call_user_func_array([self::$instance, $method], $parameters);
+        return call_user_func_array([$this->instance, $method], $parameters);
     }
 }

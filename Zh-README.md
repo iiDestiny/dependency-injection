@@ -18,7 +18,7 @@ composer require iidestiny/dependency-injection -vvv
 
 ## 使用
 
-使用辅助方法「推荐」
+使用辅助方法
 
 ```php
     // 注册你的自定义类
@@ -29,14 +29,6 @@ composer require iidestiny/dependency-injection -vvv
     
     // 类所有方法都可以调用
     di_register(Tools::class)->foo($bar)
-```
-
-原本方法
-
-```php
-use Iidestiny\DependencyInjection\App;
-
-App::register(Tools::class)
 ```
 
 ## 实例
