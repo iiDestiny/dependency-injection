@@ -9,6 +9,12 @@
 </p>
 <p align="center"> Let your custom class methods also enjoy dependency injection.</p>
 
+<p align="center">
+感谢关注「GitHub 热门」公众号，带你了解技术圈内热门新鲜事！
+<br/>
+<img src="https://cdn.learnku.com/uploads/images/202011/09/4430/qsECw9Ctgv.jpg!large">
+</p>
+
 ## Doc
 
 - [中文文档](https://github.com/iiDestiny/dependency-injection/blob/master/Zh-README.md)
